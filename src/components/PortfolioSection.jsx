@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useState } from 'react';
 
 const categories = ['الكل', 'الصحة', 'العقارات', 'التطبيقات والتقنية', 'الخدمات المالية', 'التعليم والتربية', 'أخرى'];
 
@@ -34,6 +34,7 @@ const portfolioItems = [
     category: 'أخرى',
     alt: 'مشاريع أخرى متنوعة',
   },
+  
 ];
 
 export default function PortfolioSection() {
