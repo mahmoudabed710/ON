@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Funnel+Display:wght@300;400;500;600;700;800&family=Epilogue:wght@400;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-on-teal: #42ae9f;
+  --color-on-teal-light: #5ed6c5;
+  --color-on-dark: #0b0e0f;
+  --color-on-darker: #080d0e;
+  --color-on-section: #222222;
+  --color-on-values: #30665e;
+  --color-on-service: #c9c9c9;
+
+  /* Text colors */
+  --color-text-light: #e7e7e7;
+  --color-text-muted: #c3c3c3;
+  --color-text-nav: #d1d0d0;
+  --color-text-dark: #4a4a4a;
+  --color-text-darker: #4f4f4f;
+  --color-text-footer: #bfbfbf;
+  --color-text-watermark: #6b6b6b;
+
+  /* Fonts */
+  --font-tajawal: 'Tajawal', sans-serif;
+  --font-vietnam: 'Be Vietnam Pro', sans-serif;
+  --font-funnel: 'Funnel Display', sans-serif;
+  --font-epilogue: 'Epilogue', sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-on-dark);
+    color: var(--color-text-light);
+    font-family: var(--font-tajawal);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-on-teal);
+    color: white;
+  }
+}
+
+@layer components {
+  .teal-btn {
+    @apply inline-flex items-center gap-3 bg-on-teal text-white font-tajawal font-extrabold text-xl rounded-[30px] px-7 py-3 transition-all duration-300 hover:bg-on-teal-light hover:scale-105 active:scale-95;
+  }
+
+  .section-fade {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .section-fade.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .watermark-text {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-text-watermark);
+    font-family: var(--font-tajawal);
+    font-weight: 800;
+    font-size: clamp(70px, 11vw, 160px);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .value-card {
+    @apply bg-on-values rounded-[25px] p-6 flex flex-col gap-3 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .service-card {
+    @apply bg-on-service rounded-[28px] p-8 flex flex-col gap-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-default;
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
